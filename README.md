@@ -14,3 +14,14 @@ I need to probe the signals from the brooks board to understand how it's reading
 I ordered 5x AH1912-FA-7 hall effect sensors to test the output from a random key switch, probably the Gateron Jade. I have not ordered those yet because I am waiting for more money.
 
 Part is here: https://www.amazon.com/GATERON-Magnetic-Pre-lubed-Pre-travel-Mechanical/dp/B0CQXGTJWG
+
+# 1/29/2025
+Gateron Jade switches were ordered from Aliexpress because cheap. 
+
+I'm thinking of using the ADS131M08 x2 as the ADCs and interfacing over SPI. My reasoning is that I don't want to have to use the ADC on the ATmega2560 to cycle through every button every time, drastically reducing the response time. This also saves some GPIO on the ATMega2560 and maybe lets me go to a cheaper or smaller chip. I may stay on it though so I can make a webserver to configure the actuation points. 
+
+There's also an Arduino library for interfacing with the ADC chip: https://github.com/tpcorrea/Arduino-ADS131M08
+The part is found here: https://www.digikey.com/en/products/detail/texas-instruments/ADS131M08IPBS/11502282
+
+I also realize that the sensor I purchased is a digital switch.... I'll probably get some DRV5053VAQDBZR with the ADCs for a true-analog version. 
+
