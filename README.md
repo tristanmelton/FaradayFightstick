@@ -25,3 +25,9 @@ The part is found here: https://www.digikey.com/en/products/detail/texas-instrum
 
 I also realize that the sensor I purchased is a digital switch.... I'll probably get some DRV5053VAQDBZR with the ADCs for a true-analog version. 
 
+Alternate more usable and cheap ADCs:
+
+https://www.mouser.com/ProductDetail/Texas-Instruments/ADS7961SRHBT?qs=DS7Z8uEdLNxNMuexpXCw2g%3D%3D
+
+https://www.mouser.com/ProductDetail/Texas-Instruments/ADC108S022CIMT-NOPB?qs=7X5t%252BdzoRHBC81ZWvn8axQ%3D%3D
+
