@@ -3021,6 +3021,86 @@
 		)
 		(uuid "f80160f4-1ded-405a-b2a4-c7a14b5c18b2")
 	)
+	(label "MK"
+		(at 127 110.49 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "07395a17-ec6d-4b21-ac4a-d218608c331c")
+	)
+	(label "HP"
+		(at 127 102.87 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "24154b9a-ad45-4ec9-904d-e78dd63baaff")
+	)
+	(label "MP"
+		(at 127 100.33 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "2b0a9f12-0497-4391-b509-cb71d2814fb0")
+	)
+	(label "SHK"
+		(at 127 115.57 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "2fd5a743-ceb4-40d3-bd64-a870f4d61d45")
+	)
+	(label "U"
+		(at 127 52.07 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "423c1570-ee70-4e96-9ce0-a09b318a6beb")
+	)
+	(label "LK"
+		(at 127 107.95 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "443d0053-ae21-4e23-8011-7e4a63a8a522")
+	)
+	(label "L"
+		(at 127 57.15 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "4e6932c9-a3f4-47f6-9691-802447cd128d")
+	)
+	(label "HOME"
+		(at 127 67.31 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "6434c71c-ae23-48af-98f1-31c5e29b1deb")
+	)
 	(label "RST"
 		(at 33.02 31.75 0)
 		(effects
@@ -3030,6 +3110,86 @@
 			(justify left bottom)
 		)
 		(uuid "72bbd201-0458-4e2a-accf-4971b73a2d8b")
+	)
+	(label "HK"
+		(at 127 113.03 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "75913faf-32f8-4dea-b525-b4e2d7dbf942")
+	)
+	(label "TURBO"
+		(at 127 69.85 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "76ece739-1d86-43ef-bd11-071527cac21e")
+	)
+	(label "SELECT"
+		(at 127 64.77 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "7f749fdf-05fc-40b2-bcc1-e6aaa3471866")
+	)
+	(label "START"
+		(at 127 62.23 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "91542021-4450-48a3-92f2-bdd9536627fe")
+	)
+	(label "SHP"
+		(at 127 105.41 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "980c9d0a-3498-4ef6-b3cb-98e8faa9a50f")
+	)
+	(label "R"
+		(at 127 59.69 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "a1373607-5e70-47ec-a05d-0dd650b67e0b")
+	)
+	(label "D"
+		(at 127 54.61 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "b7fd620e-bfb7-44c9-8d83-1d6a08c32681")
+	)
+	(label "LP"
+		(at 127 97.79 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "e58c4fd4-24f3-4ad8-99b2-d07da1b66acd")
 	)
 	(label "VUSB"
 		(at 35.56 53.34 0)
@@ -3060,6 +3220,116 @@
 			(justify right bottom)
 		)
 		(uuid "f8eb8229-df1b-49ea-bb62-c4eb606489cf")
+	)
+	(global_label "NOT_CS2"
+		(shape input)
+		(at 127 87.63 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "0482b05f-ff4c-40d0-b935-272abc5cd836")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 138.2704 87.63 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+	)
+	(global_label "NOT_CS1"
+		(shape input)
+		(at 127 85.09 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "3d36e4f1-9af4-4aca-9bc9-15558fb63b39")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 138.2704 85.09 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+	)
+	(global_label "MOSI"
+		(shape input)
+		(at 127 80.01 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "7cd0b23e-05df-4e3b-88ef-74017a76aaf3")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 134.5814 80.01 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+	)
+	(global_label "SCLK"
+		(shape input)
+		(at 127 77.47 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "843b2592-2e04-4826-8c37-3321297a4e6d")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 134.7628 77.47 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+	)
+	(global_label "MISO"
+		(shape input)
+		(at 127 82.55 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "af975df6-d869-47fd-b1eb-536476130359")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 134.5814 82.55 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
 	)
 	(symbol
 		(lib_id "Device:C")
@@ -5250,6 +5520,44 @@
 				(path "/e015e616-37c3-4f95-aa49-76389b12ce2e"
 					(reference "#PWR07")
 					(unit 1)
+				)
+			)
+		)
+	)
+	(sheet
+		(at 203.2 97.79)
+		(size 74.93 63.5)
+		(fields_autoplaced yes)
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(fill
+			(color 0 0 0 0.0000)
+		)
+		(uuid "7538307a-42a2-4711-b6b0-e1521c2c3241")
+		(property "Sheetname" "Buttons_Hall"
+			(at 203.2 97.0784 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "buttons_hall.kicad_sch"
+			(at 203.2 161.8746 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(instances
+			(project "MainBoard"
+				(path "/e015e616-37c3-4f95-aa49-76389b12ce2e"
+					(page "2")
 				)
 			)
 		)

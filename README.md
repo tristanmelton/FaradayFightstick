@@ -31,3 +31,7 @@ https://www.mouser.com/ProductDetail/Texas-Instruments/ADS7961SRHBT?qs=DS7Z8uEdL
 
 https://www.mouser.com/ProductDetail/Texas-Instruments/ADC108S022CIMT-NOPB?qs=7X5t%252BdzoRHBC81ZWvn8axQ%3D%3D
 
+# 1/29/2025 PM
+I decided to opt for the ADC108S022. I placed two of them and will interface over SPI. I think I may be able to go for a smaller and cheaper main IC rather than the 2560, I'll check how heavy running a webserver off of it is and go from there. Alternatively I could do the programming over USB or something, or maybe a built-in header. I'm not sure on that front yet. 
+
+I've updated the PCB with the aforementioned changes. Technically I think it works as a v1.0 but I'll hold off on calling it that for now.
