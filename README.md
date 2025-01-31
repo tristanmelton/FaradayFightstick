@@ -35,3 +35,8 @@ https://www.mouser.com/ProductDetail/Texas-Instruments/ADC108S022CIMT-NOPB?qs=7X
 I decided to opt for the ADC108S022. I placed two of them and will interface over SPI. I think I may be able to go for a smaller and cheaper main IC rather than the 2560, I'll check how heavy running a webserver off of it is and go from there. Alternatively I could do the programming over USB or something, or maybe a built-in header. I'm not sure on that front yet. 
 
 I've updated the PCB with the aforementioned changes. Technically I think it works as a v1.0 but I'll hold off on calling it that for now.
+
+# 1/30/2025
+I swapped the ADC-MCU from USB-micro to USB-C for easier compatibility with other systems. I did some initial PCB layout too - I need to figure out what footprint works with the Gateron Jade Magnetic Pro switches I am getting.
+
+I grabbed the key footprints from here: https://github.com/siderakb/key-switches.pretty 
