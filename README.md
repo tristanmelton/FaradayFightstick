@@ -40,3 +40,10 @@ I've updated the PCB with the aforementioned changes. Technically I think it wor
 I swapped the ADC-MCU from USB-micro to USB-C for easier compatibility with other systems. I did some initial PCB layout too - I need to figure out what footprint works with the Gateron Jade Magnetic Pro switches I am getting.
 
 I grabbed the key footprints from here: https://github.com/siderakb/key-switches.pretty 
+
+# 2/3/2025
+Swapped over to the ATMEGA32-16U because it has enough pins to do everything I need. I also measured (hopefully accurately) the footprint for the Gateron Jade Magnetic Pro switches and added those into the PCB layout. I ordered a Brooks P5 Mini because there's no public pinout online. Once I get it I'll make a KiCAD footprint for it so people can use it in their designs as well. For now, I added a dummy footprint for the Brooks P5 Pro as a stand-in.
+
+I may order the hall effect sensors soon - the Gaterons came in and from my phone, there was about 2-mT of magnetic differential from pushed to not pushed, which is ~1/4 the sensing range of the hall effect switch. This was with the few-mm standoff from the little plastic pins on the switch, plus through my phone so probably will be stronger than 2-mT on the actual board. I'll probably order in the next day or so. 
+
+I still need to probe my Brooks board and see how the output voltage looks like... I suspect its just pulling a pin to ground which will be easy to replicate but I don't want to assume anything.

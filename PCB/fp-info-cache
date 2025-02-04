@@ -1,4 +1,4 @@
-25538533357873592
+25543749304933113
 ADCs
 MTC16
 
@@ -370,6 +370,20 @@ battery CR-3032 coin cell vertical
 0
 2
 2
+BrooksBoards
+BrooksP5Mini
+
+
+0
+0
+0
+BrooksBoards
+BrooksP5Plus
+
+
+0
+0
+0
 Button_Switch_Keyboard
 SW_Cherry_MX_1.00u_PCB
 Cherry MX keyswitch, 1.00u, PCB mount, http://cherryamericas.com/wp-content/uploads/2014/12/mx_cat.pdf
@@ -103011,3 +103025,10 @@ FA-238 16.0000MB-C3
 0
 4
 4
+key-switches
+Gateron Jade Pro Magnetic
+
+
+0
+0
+0

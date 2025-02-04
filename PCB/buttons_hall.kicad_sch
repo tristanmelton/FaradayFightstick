@@ -605,6 +605,67 @@
 				)
 			)
 		)
+		(symbol "KeyboardKeys:Gateron_Jade_Pro_Magnetic"
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(property "Reference" "U"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Value" ""
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Footprint" ""
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Datasheet" ""
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Description" ""
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(symbol "Gateron_Jade_Pro_Magnetic_0_1"
+				(rectangle
+					(start -2.54 2.54)
+					(end 2.54 -2.54)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+			)
+		)
 		(symbol "power:GND"
 			(power)
 			(pin_numbers hide)
@@ -1910,6 +1971,70 @@
 		)
 	)
 	(symbol
+		(lib_id "KeyboardKeys:Gateron_Jade_Pro_Magnetic")
+		(at 55.88 113.03 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "08a919b5-8425-44a6-9ec5-67fdea93c244")
+		(property "Reference" "U24"
+			(at 59.69 112.3949 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "~"
+			(at 59.69 114.3 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "key-switches:Gateron Jade Pro Magnetic"
+			(at 55.88 113.03 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 55.88 113.03 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" ""
+			(at 55.88 113.03 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(instances
+			(project ""
+				(path "/e015e616-37c3-4f95-aa49-76389b12ce2e/7538307a-42a2-4711-b6b0-e1521c2c3241"
+					(reference "U24")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "power:GND")
 		(at 110.49 120.65 90)
 		(unit 1)
@@ -2391,6 +2516,70 @@
 		)
 	)
 	(symbol
+		(lib_id "KeyboardKeys:Gateron_Jade_Pro_Magnetic")
+		(at 182.88 71.12 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "29a6739b-3f89-41a3-a160-ab6baee1da59")
+		(property "Reference" "U33"
+			(at 186.69 70.4849 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "~"
+			(at 186.69 72.39 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "key-switches:Gateron Jade Pro Magnetic"
+			(at 182.88 71.12 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 182.88 71.12 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" ""
+			(at 182.88 71.12 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(instances
+			(project ""
+				(path "/e015e616-37c3-4f95-aa49-76389b12ce2e/7538307a-42a2-4711-b6b0-e1521c2c3241"
+					(reference "U33")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "2025-01-29_23-57-24:DRV5053VAQDBZR")
 		(at 90.17 161.29 0)
 		(unit 1)
@@ -2604,6 +2793,70 @@
 		)
 	)
 	(symbol
+		(lib_id "KeyboardKeys:Gateron_Jade_Pro_Magnetic")
+		(at 57.15 135.89 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "37336e67-7c92-4b1b-b087-c878022b64f3")
+		(property "Reference" "U25"
+			(at 60.96 135.2549 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "~"
+			(at 60.96 137.16 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "key-switches:Gateron Jade Pro Magnetic"
+			(at 57.15 135.89 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 57.15 135.89 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" ""
+			(at 57.15 135.89 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(instances
+			(project ""
+				(path "/e015e616-37c3-4f95-aa49-76389b12ce2e/7538307a-42a2-4711-b6b0-e1521c2c3241"
+					(reference "U25")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "power:VCC")
 		(at 69.85 113.03 90)
 		(unit 1)
@@ -2811,6 +3064,70 @@
 		)
 	)
 	(symbol
+		(lib_id "KeyboardKeys:Gateron_Jade_Pro_Magnetic")
+		(at 53.34 21.59 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "4b80e716-90c4-4c6d-836f-cee5ab91dba9")
+		(property "Reference" "U2"
+			(at 57.15 20.9549 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "~"
+			(at 57.15 22.86 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "key-switches:Gateron Jade Pro Magnetic"
+			(at 53.34 21.59 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 53.34 21.59 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" ""
+			(at 53.34 21.59 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(instances
+			(project ""
+				(path "/e015e616-37c3-4f95-aa49-76389b12ce2e/7538307a-42a2-4711-b6b0-e1521c2c3241"
+					(reference "U2")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "power:GND")
 		(at 265.43 74.93 90)
 		(unit 1)
@@ -3012,6 +3329,134 @@
 			(project "MainBoard"
 				(path "/e015e616-37c3-4f95-aa49-76389b12ce2e/7538307a-42a2-4711-b6b0-e1521c2c3241"
 					(reference "U13")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "KeyboardKeys:Gateron_Jade_Pro_Magnetic")
+		(at 184.15 91.44 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "5c725098-490a-40bb-8866-8bf4d0aef8b3")
+		(property "Reference" "U32"
+			(at 187.96 90.8049 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "~"
+			(at 187.96 92.71 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "key-switches:Gateron Jade Pro Magnetic"
+			(at 184.15 91.44 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 184.15 91.44 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" ""
+			(at 184.15 91.44 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(instances
+			(project ""
+				(path "/e015e616-37c3-4f95-aa49-76389b12ce2e/7538307a-42a2-4711-b6b0-e1521c2c3241"
+					(reference "U32")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "KeyboardKeys:Gateron_Jade_Pro_Magnetic")
+		(at 58.42 180.34 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "5d7b0e48-cd4c-4bd4-9d7e-f9f5f74d5dd3")
+		(property "Reference" "U27"
+			(at 62.23 179.7049 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "~"
+			(at 62.23 181.61 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "key-switches:Gateron Jade Pro Magnetic"
+			(at 58.42 180.34 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 58.42 180.34 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" ""
+			(at 58.42 180.34 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(instances
+			(project ""
+				(path "/e015e616-37c3-4f95-aa49-76389b12ce2e/7538307a-42a2-4711-b6b0-e1521c2c3241"
+					(reference "U27")
 					(unit 1)
 				)
 			)
@@ -3639,6 +4084,70 @@
 		)
 	)
 	(symbol
+		(lib_id "KeyboardKeys:Gateron_Jade_Pro_Magnetic")
+		(at 54.61 66.04 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "91a9d4e7-8279-4d4a-a539-df28719dd1e1")
+		(property "Reference" "U22"
+			(at 58.42 65.4049 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "~"
+			(at 58.42 67.31 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "key-switches:Gateron Jade Pro Magnetic"
+			(at 54.61 66.04 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 54.61 66.04 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" ""
+			(at 54.61 66.04 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(instances
+			(project ""
+				(path "/e015e616-37c3-4f95-aa49-76389b12ce2e/7538307a-42a2-4711-b6b0-e1521c2c3241"
+					(reference "U22")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "2025-01-29_23-52-34:ADC108S022CIMTX_NOPB")
 		(at 204.47 64.77 0)
 		(unit 1)
@@ -3745,6 +4254,70 @@
 			(project "MainBoard"
 				(path "/e015e616-37c3-4f95-aa49-76389b12ce2e/7538307a-42a2-4711-b6b0-e1521c2c3241"
 					(reference "U3")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "KeyboardKeys:Gateron_Jade_Pro_Magnetic")
+		(at 186.69 160.02 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "a195852a-9aec-47f1-a3e4-03acc26fc94f")
+		(property "Reference" "U29"
+			(at 190.5 159.3849 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "~"
+			(at 190.5 161.29 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "key-switches:Gateron Jade Pro Magnetic"
+			(at 186.69 160.02 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 186.69 160.02 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" ""
+			(at 186.69 160.02 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(instances
+			(project ""
+				(path "/e015e616-37c3-4f95-aa49-76389b12ce2e/7538307a-42a2-4711-b6b0-e1521c2c3241"
+					(reference "U29")
 					(unit 1)
 				)
 			)
@@ -4439,6 +5012,70 @@
 		)
 	)
 	(symbol
+		(lib_id "KeyboardKeys:Gateron_Jade_Pro_Magnetic")
+		(at 185.42 138.43 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "c17f288f-a62f-4de8-91a2-ff4fa59df40a")
+		(property "Reference" "U30"
+			(at 189.23 137.7949 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "~"
+			(at 189.23 139.7 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "key-switches:Gateron Jade Pro Magnetic"
+			(at 185.42 138.43 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 185.42 138.43 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" ""
+			(at 185.42 138.43 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(instances
+			(project ""
+				(path "/e015e616-37c3-4f95-aa49-76389b12ce2e/7538307a-42a2-4711-b6b0-e1521c2c3241"
+					(reference "U30")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "power:GND")
 		(at 168.91 121.92 90)
 		(unit 1)
@@ -4573,6 +5210,70 @@
 			(project ""
 				(path "/e015e616-37c3-4f95-aa49-76389b12ce2e/7538307a-42a2-4711-b6b0-e1521c2c3241"
 					(reference "U8")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "KeyboardKeys:Gateron_Jade_Pro_Magnetic")
+		(at 57.15 157.48 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "c7df7846-f5db-4684-9937-0881650855ac")
+		(property "Reference" "U26"
+			(at 60.96 156.8449 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "~"
+			(at 60.96 158.75 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "key-switches:Gateron Jade Pro Magnetic"
+			(at 57.15 157.48 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 57.15 157.48 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" ""
+			(at 57.15 157.48 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(instances
+			(project ""
+				(path "/e015e616-37c3-4f95-aa49-76389b12ce2e/7538307a-42a2-4711-b6b0-e1521c2c3241"
+					(reference "U26")
 					(unit 1)
 				)
 			)
@@ -4780,6 +5481,70 @@
 		)
 	)
 	(symbol
+		(lib_id "KeyboardKeys:Gateron_Jade_Pro_Magnetic")
+		(at 53.34 44.45 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "cc529b6e-30d8-47c8-8bbf-d6c0caba73eb")
+		(property "Reference" "U21"
+			(at 57.15 43.8149 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "~"
+			(at 57.15 45.72 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "key-switches:Gateron Jade Pro Magnetic"
+			(at 53.34 44.45 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 53.34 44.45 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" ""
+			(at 53.34 44.45 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(instances
+			(project ""
+				(path "/e015e616-37c3-4f95-aa49-76389b12ce2e/7538307a-42a2-4711-b6b0-e1521c2c3241"
+					(reference "U21")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "2025-01-29_23-57-24:DRV5053VAQDBZR")
 		(at 90.17 24.13 0)
 		(unit 1)
@@ -4847,6 +5612,70 @@
 			(project ""
 				(path "/e015e616-37c3-4f95-aa49-76389b12ce2e/7538307a-42a2-4711-b6b0-e1521c2c3241"
 					(reference "U11")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "KeyboardKeys:Gateron_Jade_Pro_Magnetic")
+		(at 55.88 90.17 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "d3d2eea4-4155-4122-9a34-417cc3f67f2e")
+		(property "Reference" "U23"
+			(at 59.69 89.5349 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "~"
+			(at 59.69 91.44 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "key-switches:Gateron Jade Pro Magnetic"
+			(at 55.88 90.17 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 55.88 90.17 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" ""
+			(at 55.88 90.17 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(instances
+			(project ""
+				(path "/e015e616-37c3-4f95-aa49-76389b12ce2e/7538307a-42a2-4711-b6b0-e1521c2c3241"
+					(reference "U23")
 					(unit 1)
 				)
 			)
@@ -4987,6 +5816,70 @@
 			(project "MainBoard"
 				(path "/e015e616-37c3-4f95-aa49-76389b12ce2e/7538307a-42a2-4711-b6b0-e1521c2c3241"
 					(reference "U14")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "KeyboardKeys:Gateron_Jade_Pro_Magnetic")
+		(at 180.34 25.4 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "dbef598e-41e4-410c-b0d3-71546d1267c5")
+		(property "Reference" "U35"
+			(at 184.15 24.7649 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "~"
+			(at 184.15 26.67 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "key-switches:Gateron Jade Pro Magnetic"
+			(at 180.34 25.4 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 180.34 25.4 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" ""
+			(at 180.34 25.4 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(instances
+			(project ""
+				(path "/e015e616-37c3-4f95-aa49-76389b12ce2e/7538307a-42a2-4711-b6b0-e1521c2c3241"
+					(reference "U35")
 					(unit 1)
 				)
 			)
@@ -5462,6 +6355,70 @@
 		)
 	)
 	(symbol
+		(lib_id "KeyboardKeys:Gateron_Jade_Pro_Magnetic")
+		(at 185.42 114.3 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "f04df064-a8ca-4af0-8dfb-4dc8afa335eb")
+		(property "Reference" "U31"
+			(at 189.23 113.6649 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "~"
+			(at 189.23 115.57 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "key-switches:Gateron Jade Pro Magnetic"
+			(at 185.42 114.3 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 185.42 114.3 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" ""
+			(at 185.42 114.3 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(instances
+			(project ""
+				(path "/e015e616-37c3-4f95-aa49-76389b12ce2e/7538307a-42a2-4711-b6b0-e1521c2c3241"
+					(reference "U31")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "power:VCC")
 		(at 204.47 29.21 90)
 		(unit 1)
@@ -5590,6 +6547,134 @@
 			(project ""
 				(path "/e015e616-37c3-4f95-aa49-76389b12ce2e/7538307a-42a2-4711-b6b0-e1521c2c3241"
 					(reference "#PWR053")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "KeyboardKeys:Gateron_Jade_Pro_Magnetic")
+		(at 171.45 177.8 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "f7903aa7-03ab-4b42-a3b5-9abefb7cfe1c")
+		(property "Reference" "U28"
+			(at 175.26 177.1649 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "~"
+			(at 175.26 179.07 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "key-switches:Gateron Jade Pro Magnetic"
+			(at 171.45 177.8 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 171.45 177.8 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" ""
+			(at 171.45 177.8 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(instances
+			(project ""
+				(path "/e015e616-37c3-4f95-aa49-76389b12ce2e/7538307a-42a2-4711-b6b0-e1521c2c3241"
+					(reference "U28")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "KeyboardKeys:Gateron_Jade_Pro_Magnetic")
+		(at 179.07 49.53 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "f99ae2b8-3a16-4588-9dd2-f1c359b23d31")
+		(property "Reference" "U34"
+			(at 182.88 48.8949 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "~"
+			(at 182.88 50.8 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "key-switches:Gateron Jade Pro Magnetic"
+			(at 179.07 49.53 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 179.07 49.53 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" ""
+			(at 179.07 49.53 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(instances
+			(project ""
+				(path "/e015e616-37c3-4f95-aa49-76389b12ce2e/7538307a-42a2-4711-b6b0-e1521c2c3241"
+					(reference "U34")
 					(unit 1)
 				)
 			)

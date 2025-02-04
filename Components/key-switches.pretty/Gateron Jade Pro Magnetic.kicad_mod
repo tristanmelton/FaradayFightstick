@@ -1,0 +1,135 @@
+(footprint "Gateron Jade Pro Magnetic"
+	(version 20240108)
+	(generator "pcbnew")
+	(generator_version "8.0")
+	(layer "F.Cu")
+	(property "Reference" "REF**"
+		(at 0 -0.5 0)
+		(unlocked yes)
+		(layer "F.SilkS")
+		(uuid "f7ce9fbc-7ac8-4d18-b9c4-016a5a0d8b60")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.1)
+			)
+		)
+	)
+	(property "Value" "Gateron Jade Pro Magnetic"
+		(at 0 1 0)
+		(unlocked yes)
+		(layer "F.Fab")
+		(uuid "82215c51-4ab6-4b3b-8060-44421b41be19")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Footprint" ""
+		(at 0 0 0)
+		(unlocked yes)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "dee1dd93-9ce8-4f2b-8427-58a0194f2bb4")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Datasheet" ""
+		(at 0 0 0)
+		(unlocked yes)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "1d363c81-13be-470e-ac08-a1442ab93f64")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Description" ""
+		(at 0 0 0)
+		(unlocked yes)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "3aa51b93-b7c9-417b-82a0-3fcb996ae614")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(attr through_hole)
+	(fp_rect
+		(start -7 -7)
+		(end 7 7)
+		(stroke
+			(width 0.1)
+			(type default)
+		)
+		(fill none)
+		(layer "F.SilkS")
+		(uuid "cd437aef-6615-4ff6-81f3-618f32fa0c30")
+	)
+	(fp_text user "${REFERENCE}"
+		(at 0 2.5 0)
+		(unlocked yes)
+		(layer "F.Fab")
+		(uuid "caaf3f95-8ab0-4eb1-ae6d-7e545c34f30a")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(pad "" np_thru_hole circle
+		(at -5 0)
+		(size 1.53 1.53)
+		(drill 1.2)
+		(layers "F&B.Cu" "*.Mask")
+		(uuid "61fd854d-095e-4ba3-8faf-0fa6324d2fbf")
+	)
+	(pad "" np_thru_hole circle
+		(at 5 0)
+		(size 1.53 1.53)
+		(drill 1.2)
+		(layers "F&B.Cu" "*.Mask")
+		(uuid "dade659d-bec1-4060-a22e-e302b55b4c8c")
+	)
+	(zone
+		(net 0)
+		(net_name "")
+		(layers "F&B.Cu" "Edge.Cuts")
+		(uuid "1395813d-dc34-4509-bd37-edb00fed3edc")
+		(hatch edge 0.5)
+		(connect_pads
+			(clearance 0)
+		)
+		(min_thickness 0.25)
+		(filled_areas_thickness no)
+		(keepout
+			(tracks allowed)
+			(vias not_allowed)
+			(pads not_allowed)
+			(copperpour not_allowed)
+			(footprints allowed)
+		)
+		(fill
+			(thermal_gap 0.5)
+			(thermal_bridge_width 0.5)
+		)
+		(polygon
+			(pts
+				(xy -6 6) (xy 6 6) (xy 6 -6) (xy -6 -6)
+			)
+		)
+	)
+)
