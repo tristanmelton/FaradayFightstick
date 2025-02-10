@@ -47,3 +47,6 @@ Swapped over to the ATMEGA32-16U because it has enough pins to do everything I n
 I may order the hall effect sensors soon - the Gaterons came in and from my phone, there was about 2-mT of magnetic differential from pushed to not pushed, which is ~1/4 the sensing range of the hall effect switch. This was with the few-mm standoff from the little plastic pins on the switch, plus through my phone so probably will be stronger than 2-mT on the actual board. I'll probably order in the next day or so. 
 
 I still need to probe my Brooks board and see how the output voltage looks like... I suspect its just pulling a pin to ground which will be easy to replicate but I don't want to assume anything.
+
+# 2/9/2025
+Continuing to do some additional routing. I am waiting for my Brooks P5 Mini to hopefully come in but it hasn't been shipped yet. As a fallback, I placed and routed a Raspberry Pi Pico as a fallback to use with GP-2040-CE. We'll see if that pans out.  I want to have it be as low profile as possible but I might do some cable routing with a thin-profile USB-C so as not to bulk up the overall design. The Pico version is labeld MainBoard_RP2040. 
