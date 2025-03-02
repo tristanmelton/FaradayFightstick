@@ -1,4 +1,4 @@
-25548689064221551
+25550428638917304
 ADCs
 MTC16
 
@@ -65939,6 +65939,13 @@ Through hole pin header THT 2x20 2.54mm double row
 0
 86
 43
+Mayflash
+MagicBoots
+
+
+0
+4
+4
 Module
 A20_OLINUXINO_LIME2
 A20 Olinuxino LIME2, 1.2GHz, 512-1024MB RAM, Micro-SD, NAND or eMMC, 1000Mbit Ethernet

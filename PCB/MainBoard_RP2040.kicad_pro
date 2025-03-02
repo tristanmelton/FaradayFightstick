@@ -468,7 +468,7 @@
       "gencad": "",
       "idf": "",
       "netlist": "MainBoard_RP2040.net",
-      "plot": "",
+      "plot": "GBR/",
       "pos_files": "",
       "specctra_dsn": "",
       "step": "",
@@ -580,6 +580,10 @@
     [
       "e015e616-37c3-4f95-aa49-76389b12ce2e",
       "Root"
+    ],
+    [
+      "09e4c5be-bbfa-4ae4-a166-0020c71cc08b",
+      "Hall Buttons"
     ]
   ],
   "text_variables": {}

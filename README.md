@@ -50,3 +50,8 @@ I still need to probe my Brooks board and see how the output voltage looks like.
 
 # 2/9/2025
 Continuing to do some additional routing. I am waiting for my Brooks P5 Mini to hopefully come in but it hasn't been shipped yet. As a fallback, I placed and routed a Raspberry Pi Pico as a fallback to use with GP-2040-CE. We'll see if that pans out.  I want to have it be as low profile as possible but I might do some cable routing with a thin-profile USB-C so as not to bulk up the overall design. The Pico version is labeld MainBoard_RP2040. 
+
+# 3/2/2025
+Recieved the PCB and got it working! I did not add proper resistors and caps at the ADCs so I will do that in the next few days for the next v1.1 of the PCB. I have moved the MagicBoots to a more convenient location that doesn't hinder the GP-2040-CE and added an ICSP header for burning the bootloader onto the ATMEGA32-16U. 
+
+For the ADC reader, I needed to disable the TXLED and RXLED functionality so I can use their pins. Its relatively easy, just made a modification to the arduino_header.h file (I burned it as a Micro, so I modified the Micro board information).
