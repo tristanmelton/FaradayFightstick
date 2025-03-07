@@ -55,3 +55,6 @@ Continuing to do some additional routing. I am waiting for my Brooks P5 Mini to 
 Recieved the PCB and got it working! I did not add proper resistors and caps at the ADCs so I will do that in the next few days for the next v1.1 of the PCB. I have moved the MagicBoots to a more convenient location that doesn't hinder the GP-2040-CE and added an ICSP header for burning the bootloader onto the ATMEGA32-16U. 
 
 For the ADC reader, I needed to disable the TXLED and RXLED functionality so I can use their pins. Its relatively easy, just made a modification to the arduino_header.h file (I burned it as a Micro, so I modified the Micro board information).
+
+# 3/6/2025
+The leverless is working! I wrote a quick interface with Python to read and write button trigger thresholds to the EEPROM. The system works as an official "1.0"!
