@@ -1,5 +1,6 @@
 #include <SPI.h>
 #include <limits.h>
+#include <EEPROM.h>
 
 // SPI Pins
 #define MISO 11
@@ -40,7 +41,7 @@
 #define CH7 0b00111000
 
 float lp_val = 0;
-float lp_thres = 300;
+float lp_thres;
 float mp_val = 0;
 float mp_thres = 300;
 float hp_val = 0;
@@ -74,6 +75,7 @@ float home_thres = 300;
 float turbo_val = 0;
 float turbo_thres = 300;
 
+bool configMode = false;
 
 template<typename T>
 void printBinary(T value)
@@ -83,11 +85,32 @@ void printBinary(T value)
         Serial.print(value & mask ? "1" : "0");
     }
 }
+
+
+void ReadThresholds() 
+{
+  EEPROM.get(0, lp_thres);
+  EEPROM.get(4, mp_thres);
+  EEPROM.get(8, hp_thres);
+  EEPROM.get(12, shp_thres);
+  EEPROM.get(16, lk_thres);
+  EEPROM.get(20, mk_thres);
+  EEPROM.get(24, hk_thres);
+  EEPROM.get(28, shk_thres);
+  EEPROM.get(32, left_thres);
+  EEPROM.get(36, right_thres);
+  EEPROM.get(40, up_thres);
+  EEPROM.get(44, down_thres);
+  EEPROM.get(48, sta_thres);
+  EEPROM.get(52, sel_thres);
+  EEPROM.get(56, home_thres);
+  EEPROM.get(60, turbo_thres);
+}
 void setup()
 {
   Serial.begin(57600);
   SPI.begin();
-  SPI.beginTransaction(SPISettings(50000, MSBFIRST, SPI_MODE3));
+  SPI.beginTransaction(SPISettings(1000000, MSBFIRST, SPI_MODE3));
   pinMode(MOSI, OUTPUT);
   pinMode(MISO, INPUT);
   pinMode(SCLK, OUTPUT);
@@ -132,68 +155,160 @@ void setup()
 
   digitalWrite(CS1, HIGH); //disable at start
   digitalWrite(CS2, HIGH); //disable at start
+
+  ReadThresholds();
+
+  lp_val = readAnalogInput(CS1, CH1);
+  if(lp_val < 200) { // If we are going into config mode
+    configMode = true;
+    Serial.println("Entering Config Mode");
+  }
 }
 
 void loop()
-{  
-  lp_val = readAnalogInput(CS1, CH1);
-  mp_val = readAnalogInput(CS1, CH2);
-  hp_val = readAnalogInput(CS1, CH3);
-  shp_val = readAnalogInput(CS1, CH4);
-  shk_val = readAnalogInput(CS1, CH5);
-  hk_val = readAnalogInput(CS1, CH6);
-  mk_val = readAnalogInput(CS1, CH7);
-  lk_val = readAnalogInput(CS1, CH0);
+{
+  if(configMode) {
+    while (Serial.available() == 0) {}     //wait for data available
+    String test = Serial.readString();
 
-  left_val = readAnalogInput(CS2, CH1);
-  down_val = readAnalogInput(CS2, CH2);
-  right_val = readAnalogInput(CS2, CH3);
-  sel_val = readAnalogInput(CS2, CH4);
-  sta_val = readAnalogInput(CS2, CH5);
-  up_val = readAnalogInput(CS2, CH6);
-  home_val = readAnalogInput(CS2, CH7);
-  turbo_val = readAnalogInput(CS2, CH0);
+    const char* cstr = test.c_str();
+    char* token = strtok(cstr, ";");
+    char* button = token;
+    token= strtok(0, ";");
+    float val = atoi(token);
 
-  check_thresholds();
-  bool ACTIONS_PRINT_DEBUG = false;
-  bool DIRECTIONS_PRINT_DEBUG = false;
-  if(ACTIONS_PRINT_DEBUG) {
-    Serial.print("LP: ");
-    Serial.print(lp_val);
-    Serial.print(" MP: ");
-    Serial.print(mp_val);
-    Serial.print(" HP: ");
-    Serial.print(hp_val);
-    Serial.print(" SHP: ");
-    Serial.print(shp_val);
-    Serial.print(" LK: ");
-    Serial.print(lk_val);
-    Serial.print(" MK: ");
-    Serial.print(mk_val);
-    Serial.print(" HK: ");
-    Serial.print(hk_val);
-    Serial.print(" SHK: ");
-    Serial.println(shk_val);
-  }
-  if(DIRECTIONS_PRINT_DEBUG) {
-    Serial.print(" LEFT: ");
-    Serial.print(left_val);
-    Serial.print(" DOWN: ");
-    Serial.print(down_val);
-    Serial.print(" RIGHT: ");
-    Serial.print(right_val);
-    Serial.print(" SELECT: ");
-    Serial.print(sel_val);
-    Serial.print(" START: ");
-    Serial.print(sta_val);
-    Serial.print(" UP: ");
-    Serial.print(up_val);
-    Serial.print(" HOME: ");
-    Serial.print(home_val);
-    Serial.print(" TURBO: ");
-    Serial.println(turbo_val);
-  }
-  //Serial.println();
+    if(!strcmp(button,"GET")) {
+      //Serial.print("Getting memory value... "); Serial.println(int(val));
+      float memval;
+      EEPROM.get((int)val, memval);
+      Serial.println(memval);
+    }
+    else if(!strcmp(button,"LP")) {
+      //Serial.print("Writing "); Serial.print(val); Serial.print(" to "); Serial.println(button);
+      EEPROM.put(0, val);
+    }
+    else if(!strcmp(button,"MP")) {
+      //Serial.print("Writing "); Serial.print(val); Serial.print(" to "); Serial.println(button);
+      EEPROM.put(4, val);
+    }
+    else if(!strcmp(button,"HP")) {
+      //Serial.print("Writing "); Serial.print(val); Serial.print(" to "); Serial.println(button);
+      EEPROM.put(8, val);
+    }
+    else if(!strcmp(button,"SHP")) {
+      //Serial.print("Writing "); Serial.print(val); Serial.print(" to "); Serial.println(button);
+      EEPROM.put(12, val);
+    }
+    else if(!strcmp(button,"LK")) {
+      //Serial.print("Writing "); Serial.print(val); Serial.print(" to "); Serial.println(button);
+      EEPROM.put(16, val);
+    }
+    else if(!strcmp(button,"MK")) {
+      //Serial.print("Writing "); Serial.print(val); Serial.print(" to "); Serial.println(button);
+      EEPROM.put(20, val);
+    }
+    else if(!strcmp(button,"HK")) {
+      //Serial.print("Writing "); Serial.print(val); Serial.print(" to "); Serial.println(button);
+      EEPROM.put(24, val);
+    }
+    else if(!strcmp(button,"SHK")) {
+      //Serial.print("Writing "); Serial.print(val); Serial.print(" to "); Serial.println(button);
+      EEPROM.put(28, val);
+    }    
+    else if(!strcmp(button,"LEFT")) {
+      //Serial.print("Writing "); Serial.print(val); Serial.print(" to "); Serial.println(button);
+      EEPROM.put(32, val);
+    }
+    else if(!strcmp(button,"RIGHT")) {
+      //Serial.print("Writing "); Serial.print(val); Serial.print(" to "); Serial.println(button);
+      EEPROM.put(36, val);
+    }
+    else if(!strcmp(button,"UP")) {
+      //Serial.print("Writing "); Serial.print(val); Serial.print(" to "); Serial.println(button);
+      EEPROM.put(40, val);
+    }
+    else if(!strcmp(button,"DOWN")) {
+      //Serial.print("Writing "); Serial.print(val); Serial.print(" to "); Serial.println(button);
+      EEPROM.put(44, val);
+    } 
+    else if(!strcmp(button,"START")) {
+      //Serial.print("Writing "); Serial.print(val); Serial.print(" to "); Serial.println(button);
+      EEPROM.put(48, val);
+    }
+    else if(!strcmp(button,"SELECT")) {
+      //Serial.print("Writing "); Serial.print(val); Serial.print(" to "); Serial.println(button);
+      EEPROM.put(52, val);
+    }
+    else if(!strcmp(button,"HOME")) {
+      //Serial.print("Writing "); Serial.print(val); Serial.print(" to "); Serial.println(button);
+      EEPROM.put(56, val);
+    }
+    else if(!strcmp(button,"TURBO")) {
+      //Serial.print("Writing "); Serial.print(val); Serial.print(" to "); Serial.println(button);
+      EEPROM.put(60, val);
+    } 
+    //Serial.println("Written");
+  } 
+  else
+  {
+    lp_val = readAnalogInput(CS1, CH1);
+    mp_val = readAnalogInput(CS1, CH2);
+    hp_val = readAnalogInput(CS1, CH3);
+    shp_val = readAnalogInput(CS1, CH4);
+    shk_val = readAnalogInput(CS1, CH5);
+    hk_val = readAnalogInput(CS1, CH6);
+    mk_val = readAnalogInput(CS1, CH7);
+    lk_val = readAnalogInput(CS1, CH0);
+
+    left_val = readAnalogInput(CS2, CH1);
+    down_val = readAnalogInput(CS2, CH2);
+    right_val = readAnalogInput(CS2, CH3);
+    sel_val = readAnalogInput(CS2, CH4);
+    sta_val = readAnalogInput(CS2, CH5);
+    up_val = readAnalogInput(CS2, CH6);
+    home_val = readAnalogInput(CS2, CH7);
+    turbo_val = readAnalogInput(CS2, CH0);
+
+    check_thresholds();
+    bool ACTIONS_PRINT_DEBUG = false;
+    bool DIRECTIONS_PRINT_DEBUG = false;
+    if(ACTIONS_PRINT_DEBUG) {
+      Serial.print("LP: ");
+      Serial.print(lp_val);
+      Serial.print(" MP: ");
+      Serial.print(mp_val);
+      Serial.print(" HP: ");
+      Serial.print(hp_val);
+      Serial.print(" SHP: ");
+      Serial.print(shp_val);
+      Serial.print(" LK: ");
+      Serial.print(lk_val);
+      Serial.print(" MK: ");
+      Serial.print(mk_val);
+      Serial.print(" HK: ");
+      Serial.print(hk_val);
+      Serial.print(" SHK: ");
+      Serial.println(shk_val);
+    }
+    if(DIRECTIONS_PRINT_DEBUG) {
+      Serial.print(" LEFT: ");
+      Serial.print(left_val);
+      Serial.print(" DOWN: ");
+      Serial.print(down_val);
+      Serial.print(" RIGHT: ");
+      Serial.print(right_val);
+      Serial.print(" SELECT: ");
+      Serial.print(sel_val);
+      Serial.print(" START: ");
+      Serial.print(sta_val);
+      Serial.print(" UP: ");
+      Serial.print(up_val);
+      Serial.print(" HOME: ");
+      Serial.print(home_val);
+      Serial.print(" TURBO: ");
+      Serial.println(turbo_val);
+    }
+  } 
 
 }
 
@@ -310,13 +425,7 @@ uint16_t readAnalogInput(int chipSelect, byte channel)
   digitalWrite(chipSelect, LOW);  
   byte msb = SPI.transfer(channel);
   byte lsb = SPI.transfer(0x00);
-  //printBinary(msb);
-  //printBinary(lsb);
-  //Serial.println();
   digitalWrite(chipSelect, HIGH);
   uint16_t result = (msb << 8) | (lsb);
-  //printBinary(result);
-  //Serial.println();
-  //result = result >> 2;
   return result;
 }
