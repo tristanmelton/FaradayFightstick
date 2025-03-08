@@ -6,6 +6,7 @@ from time import sleep
 
 import serial.tools.list_ports
 
+import threading
 
 
 ports = serial.tools.list_ports.comports()
@@ -21,8 +22,8 @@ frame_connect.grid()
 
 listbox_comports = Listbox(frame_connect,height = 10, width = 50)
 
-progressbar_reading = ttk.Progressbar(frame_connect, orient=HORIZONTAL)
-progressbar_writing = ttk.Progressbar(frame_buttonconfig, orient=HORIZONTAL)
+progressbar_reading = ttk.Progressbar(frame_connect, orient=HORIZONTAL,length=160)
+progressbar_writing = ttk.Progressbar(frame_buttonconfig, orient=HORIZONTAL,length=160)
 
 label_connect = Label(frame_connect, text="Select a Serial Port")
 label_buttonsettings = Label(frame_buttonconfig, text="Button Sensitivity Configuration")
@@ -89,45 +90,52 @@ def get_button_threshold(serial_port, addr):
     val = serial_port.readline()
     print(val)
     return float(val)
-def initialize_entries(serial_port):
-    global progressbar_reading, entry_lp, entry_mp, entry_hp, entry_shp, entry_lk, entry_mk, entry_hk, entry_shk, entry_up, entry_down, entry_left, entry_right, entry_start, entry_select, entry_home, entry_turbo
+def initialize_entries():
+    global serial_port, progressbar_reading, entry_lp, entry_mp, entry_hp, entry_shp, entry_lk, entry_mk, entry_hk, entry_shk, entry_up, entry_down, entry_left, entry_right, entry_start, entry_select, entry_home, entry_turbo
     entry_lp.insert(0, str(get_button_threshold(serial_port, 0)))
     progressbar_reading.step(float(1)/16*100)
     entry_mp.insert(0, str(get_button_threshold(serial_port, 4)))
-    progressbar_reading.step(float(2)/16*100)
+    progressbar_reading.step(float(1)/16*100)
     entry_hp.insert(0, str(get_button_threshold(serial_port, 8)))
-    progressbar_reading.step(float(3)/16*100)
+    progressbar_reading.step(float(1)/16*100)
     entry_shp.insert(0, str(get_button_threshold(serial_port, 12)))
     
-    progressbar_reading.step(float(4)/16*100)
+    progressbar_reading.step(float(1)/16*100)
     entry_lk.insert(0, str(get_button_threshold(serial_port, 16)))
-    progressbar_reading.step(float(5)/16*100)
+    progressbar_reading.step(float(1)/16*100)
     entry_mk.insert(0, str(get_button_threshold(serial_port, 20)))
-    progressbar_reading.step(float(6)/16*100)
+    progressbar_reading.step(float(1)/16*100)
     entry_hk.insert(0, str(get_button_threshold(serial_port, 24)))
-    progressbar_reading.step(float(7)/16*100)
+    progressbar_reading.step(float(1)/16*100)
     entry_shk.insert(0, str(get_button_threshold(serial_port, 28)))
 
-    progressbar_reading.step(float(8)/16*100)
+    progressbar_reading.step(float(1)/16*100)
     entry_left.insert(0, str(get_button_threshold(serial_port, 32)))
-    progressbar_reading.step(float(9)/16*100)
+    progressbar_reading.step(float(1)/16*100)
     entry_right.insert(0, str(get_button_threshold(serial_port, 36)))
-    progressbar_reading.step(float(10)/16*100)
+    progressbar_reading.step(float(1)/16*100)
     entry_up.insert(0, str(get_button_threshold(serial_port, 40)))
-    progressbar_reading.step(float(11)/16*100)
+    progressbar_reading.step(float(1)/16*100)
     entry_down.insert(0, str(get_button_threshold(serial_port, 44)))       
 
-    progressbar_reading.step(float(12)/16*100)
+    progressbar_reading.step(float(1)/16*100)
     entry_start.insert(0, str(get_button_threshold(serial_port, 48)))
-    progressbar_reading.step(float(13)/16*100)
+    progressbar_reading.step(float(1)/16*100)
     entry_select.insert(0, str(get_button_threshold(serial_port, 52)))
-    progressbar_reading.step(float(14)/16*100)
+    progressbar_reading.step(float(1)/16*100)
     entry_home.insert(0, str(get_button_threshold(serial_port, 56)))
-    progressbar_reading.step(float(15)/16*100)
+    progressbar_reading.step(float(1)/16*100)
     entry_turbo.insert(0, str(get_button_threshold(serial_port, 60)))       
-    progressbar_reading.step(float(16)/16*100)
+    progressbar_reading.step(float(1)/16*100)
+
+    frame_buttonconfig.grid(row=0, column=0)
+    frame_buttonconfig.tkraise()
+    frame_connect.destroy()
+
 
 def submit_new_thresholds():
+    threading.Thread(target=submit_new_thresholds_threaded).start()
+def submit_new_thresholds_threaded():
     global serial_port, progressbar_writing
     lp_val = entry_lp.get()
     st = 'LP;' + str(lp_val) + '\r\n'
@@ -138,79 +146,79 @@ def submit_new_thresholds():
     st = 'MP;' + str(mp_val) + '\r\n'
     serial_port.write(st.encode())
     sleep(2)
-    progressbar_writing.step(float(2)/16*100)
+    progressbar_writing.step(float(1)/16*100)
     hp_val = entry_hp.get()
     st = 'HP;' + str(hp_val) + '\r\n'
     serial_port.write(st.encode())
     sleep(2)
-    progressbar_writing.step(float(3)/16*100)
+    progressbar_writing.step(float(1)/16*100)
     shp_val = entry_shp.get()
     st = 'SHP;' + str(shp_val) + '\r\n'
     serial_port.write(st.encode())
     sleep(2)
-    progressbar_writing.step(float(4)/16*100)
+    progressbar_writing.step(float(1)/16*100)
     lk_val = entry_lk.get()
     st = 'LK;' + str(lk_val) + '\r\n'
     serial_port.write(st.encode())
     sleep(2)
-    progressbar_writing.step(float(5)/16*100)
+    progressbar_writing.step(float(1)/16*100)
     mk_val = entry_mk.get()
     st = 'MK;' + str(mk_val) + '\r\n'
     serial_port.write(st.encode())
     sleep(2)
-    progressbar_writing.step(float(6)/16*100)
+    progressbar_writing.step(float(1)/16*100)
     hk_val = entry_hk.get()
     st = 'HK;' + str(hk_val) + '\r\n'
     serial_port.write(st.encode())
     sleep(2)
-    progressbar_writing.step(float(7)/16*100)
+    progressbar_writing.step(float(1)/16*100)
     shk_val = entry_shk.get()
     st = 'SHK;' + str(shk_val) + '\r\n'
     serial_port.write(st.encode())
     sleep(2)
-    progressbar_writing.step(float(8)/16*100)
+    progressbar_writing.step(float(1)/16*100)
 
     left_val = entry_left.get()
     st = 'LEFT;' + str(left_val) + '\r\n'
     serial_port.write(st.encode())
     sleep(2)
-    progressbar_writing.step(float(9)/16*100)
+    progressbar_writing.step(float(1)/16*100)
     right_val = entry_right.get()
     st = 'RIGHT;' + str(right_val) + '\r\n'
     serial_port.write(st.encode())
     sleep(2)
-    progressbar_writing.step(float(10)/16*100)
+    progressbar_writing.step(float(1)/16*100)
     up_val = entry_up.get()
     st = 'UP;' + str(up_val) + '\r\n'
     serial_port.write(st.encode())
     sleep(2)
-    progressbar_writing.step(float(11)/16*100)
+    progressbar_writing.step(float(1)/16*100)
     down_val = entry_down.get()
     st = 'DOWN;' + str(down_val) + '\r\n'
     serial_port.write(st.encode())
     sleep(2)
-    progressbar_writing.step(float(12)/16*100)
+    progressbar_writing.step(float(1)/16*100)
 
     start_val = entry_start.get()
     st = 'START;' + str(start_val) + '\r\n'
     serial_port.write(st.encode())
     sleep(2)
-    progressbar_writing.step(float(13)/16*100)
+    progressbar_writing.step(float(1)/16*100)
     select_val = entry_select.get()
     st = 'SELECT;' + str(select_val) + '\r\n'
     serial_port.write(st.encode())
     sleep(2)
-    progressbar_writing.step(float(14)/16*100)
+    progressbar_writing.step(float(1)/16*100)
     home_val = entry_home.get()
     st = 'HOME;' + str(home_val) + '\r\n'
     serial_port.write(st.encode())
     sleep(2)
-    progressbar_writing.step(float(15)/16*100)
+    progressbar_writing.step(float(1)/16*100)
     turbo_val = entry_turbo.get()
     st = 'TURBO;' + str(turbo_val) + '\r\n'
     serial_port.write(st.encode())
     sleep(2)
-    progressbar_writing.step(float(16)/16*100)
+    progressbar_writing.step(float(1)/16*100)
 
 def connect_to_serial():
     global serial_port
@@ -221,12 +229,7 @@ def connect_to_serial():
 
     serial_port = serial.Serial(comport, 57600)
     if serial_port.is_open:
-        frame_buttonconfig.grid(row=0, column=0)
-
-        initialize_entries(serial_port)
-        frame_buttonconfig.tkraise()
-        frame_connect.destroy()
-    print(comport)
+        threading.Thread(target=initialize_entries).start()
 
 
 button_openport = Button(frame_connect, text = "Open Config", command=connect_to_serial)
