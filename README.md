@@ -12,7 +12,7 @@ Once uploaded, unplug and hold LP while plugging back in and run the configurato
 
 Plug the Pi Pico into your computer and upload the GP2040-CE firmware. Once done, you should be good to go!
 
-
+There is compatibility for a MagicBoots but I have not tested as I don't own a PS5. 
 ## TODO
 - Add an "unpressed" level so users have an idea of what range of value to put in
 
