@@ -1,12 +1,20 @@
 ### FaradayFightstick
 Utilize Hall Effect sensors in an open-source leverless.
 
-Current plan: Use an ATMEGA microcontroller to read the analog out from the hall effect sensor located on the opposite side of the PCB from the switch. Then, the ATMEGA will act as the switch and output high or low to a Brooks board for each button press.
+Use an ATMEGA microcontroller to read the analog out from the hall effect sensor located on the opposite side of the PCB from the switch. Then, the ATMEGA will act as the switch and output high or low to a Brooks board for each button press.
 
-## Current Progress
-I will need minimum 15 IO for reading each sensor on it's own, so I need at least 30-total IO. I'm thinking of going for the ATMEGA2560-16AU since it has a ton of available IO and plenty of RAM (256kb). Clock speed is 16-MHz so even in worse case where we only poll a button every 1-MHz or so, that's still 1-us intervals which is faster than the ~8k polling from usual HE sensors.
+## Setup
+The board is relatively simple to set up - the most difficult part was soldering the USB-C for the ATMEGA32u4. I have no reflow oven so I used my conventional oven with solder paste, which works but is a little difficult to get the timing right to not melt the plastic in the connector.
 
-I need to probe the signals from the brooks board to understand how it's reading button presses. 
+Once all components are soldered, burn the Arduino bootloader with the "Arduino as ISP" option with an Arduino Uno or equivalent, or another bootloader burner, connected to the ICSP headers on the ATMEGA32u4 which are broken out for convenience, set to an Arduino Micro as the target. Then, plug in the USB-C and upload the ADC.ino sketch.
+
+Once uploaded, unplug and hold LP while plugging back in and run the configurator python script (to be wrapped into an exe later). Select the COM port corresponding to your board (should say COMXX: Arduino Micro), and click Connect. The progress bar will fill as the default values are read from memory. Set the values to something reasonable (I use 200-250) and click "Submit New Thresholds". Wait for the progress bar to fill and then you can unplug.
+
+Plug the Pi Pico into your computer and upload the GP2040-CE firmware. Once done, you should be good to go!
+
+
+## TODO
+- Add an "unpressed" level so users have an idea of what range of value to put in
 
 
 ## Changelog
