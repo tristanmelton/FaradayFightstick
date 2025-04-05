@@ -12258,7 +12258,7 @@
 	(footprint "key-switches:Gateron Jade Pro Magnetic"
 		(layer "F.Cu")
 		(uuid "4e9efd90-5c84-4eb5-9053-94d7d5c5bf62")
-		(at 329.1702 36.326301)
+		(at 328.5 33.5)
 		(property "Reference" "U2"
 			(at 0 -0.5 0)
 			(unlocked yes)
@@ -12387,7 +12387,7 @@
 			)
 			(polygon
 				(pts
-					(xy 323.1702 42.326301) (xy 335.1702 42.326301) (xy 335.1702 30.326301) (xy 323.1702 30.326301)
+					(xy 322.5 39.5) (xy 334.5 39.5) (xy 334.5 27.5) (xy 322.5 27.5)
 				)
 			)
 		)
