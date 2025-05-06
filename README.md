@@ -9,9 +9,9 @@ The board is relatively simple to set up - the most difficult part was soldering
 
 Once all components are soldered, burn the Arduino bootloader with the "Arduino as ISP" option with an Arduino Uno or equivalent, or another bootloader burner, connected to the ICSP headers on the ATMEGA32u4 which are broken out for convenience, set to an Arduino Micro as the target. Then, plug in the USB-C and upload the ADC.ino sketch.
 
-Once uploaded, unplug and hold LP while plugging back in and run the configurator python script (to be wrapped into an exe later). Select the COM port corresponding to your board (should say COMXX: Arduino Micro), and click Connect. The progress bar will fill as the default values are read from memory. Set the values to something reasonable (I use 200-250) and click "Submit New Thresholds". Wait for the progress bar to fill and then you can unplug.
+Once uploaded, unplug and hold LP while plugging back in and run the configurator python script (to be wrapped into an exe later). It should automatically detect the controller. If not, select the COM port corresponding to your board (should say COMXX: Arduino Micro), and click Connect. The progress bar will fill as the default values are read from memory. Set the values using the sliders and click "Submit New Thresholds". Wait for the progress bar to fill and then you can unplug.
 
-UNPLUG THE USB-C CABLE. IF YOU FAIL TO DO SO, YOU RISK CURRENT FLOWING INTO YOUR USB PORT AND DAMAGING YOUR COMPUTER (fix in next revision). Plug the Pi Pico into your computer and upload the GP2040-CE firmware. Once done, you should be good to go!
+Unplug from the ATMEGA side and plug the controller into your computer. If using the RP2040 board, upload the GP2040-CE firmware. Once done, you should be good to go!
 
 There is compatibility for a MagicBoots with the RP2040 board but I have not tested it nor the P5 mini or Gen-5X versions as I don't own a PS5. Always open to donations :)
 ## TODO
