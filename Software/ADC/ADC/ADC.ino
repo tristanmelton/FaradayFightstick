@@ -110,7 +110,7 @@ void setup()
 {
   Serial.begin(57600);
   SPI.begin();
-  SPI.beginTransaction(SPISettings(1000000, MSBFIRST, SPI_MODE3));
+  SPI.beginTransaction(SPISettings(100, MSBFIRST, SPI_MODE3));
   pinMode(MOSI, OUTPUT);
   pinMode(MISO, INPUT);
   pinMode(SCLK, OUTPUT);
@@ -177,7 +177,90 @@ void loop()
     token= strtok(0, ";");
     float val = atoi(token);
 
-    if(!strcmp(button,"GET")) {
+    if(!strcmp(button, "GETALLVAL")) {
+      lp_val = readAnalogInput(CS1, CH1);
+      mp_val = readAnalogInput(CS1, CH2);
+      hp_val = readAnalogInput(CS1, CH3);
+      shp_val = readAnalogInput(CS1, CH4);
+      shk_val = readAnalogInput(CS1, CH5);
+      hk_val = readAnalogInput(CS1, CH6);
+      mk_val = readAnalogInput(CS1, CH7);
+      lk_val = readAnalogInput(CS1, CH0);
+
+      left_val = readAnalogInput(CS2, CH1);
+      down_val = readAnalogInput(CS2, CH2);
+      right_val = readAnalogInput(CS2, CH3);
+      sel_val = readAnalogInput(CS2, CH4);
+      sta_val = readAnalogInput(CS2, CH5);
+      up_val = readAnalogInput(CS2, CH6);
+      home_val = readAnalogInput(CS2, CH7);
+      turbo_val = readAnalogInput(CS2, CH0);
+      Serial.print(lp_val);
+      Serial.print(';');
+      Serial.print(mp_val);
+      Serial.print(';');
+      Serial.print(hp_val);
+      Serial.print(';');
+      Serial.print(shp_val);
+      Serial.print(';');
+      Serial.print(lk_val);
+      Serial.print(';');
+      Serial.print(mk_val);
+      Serial.print(';');
+      Serial.print(hk_val);
+      Serial.print(';');
+      Serial.print(shk_val);
+      Serial.print(';');
+      Serial.print(left_val);
+      Serial.print(';');
+      Serial.print(down_val);
+      Serial.print(';');
+      Serial.print(right_val);
+      Serial.print(';');
+      Serial.print(up_val);
+      Serial.print(';');
+      Serial.print(sel_val);
+      Serial.print(';');
+      Serial.print(sta_val);
+      Serial.print(';');
+      Serial.print(home_val);
+      Serial.print(';');
+      Serial.println(turbo_val);
+    }
+    if(!strcmp(button, "GETALLTRIG")) {
+      Serial.print(lp_thres);
+      Serial.print(';');
+      Serial.print(mp_thres);
+      Serial.print(';');
+      Serial.print(hp_thres);
+      Serial.print(';');
+      Serial.print(shp_thres);
+      Serial.print(';');
+      Serial.print(lk_thres);
+      Serial.print(';');
+      Serial.print(mk_thres);
+      Serial.print(';');
+      Serial.print(hk_thres);
+      Serial.print(';');
+      Serial.print(shk_thres);
+      Serial.print(';');
+      Serial.print(left_thres);
+      Serial.print(';');
+      Serial.print(down_thres);
+      Serial.print(';');
+      Serial.print(right_thres);
+      Serial.print(';');
+      Serial.print(up_thres);
+      Serial.print(';');
+      Serial.print(sel_thres);
+      Serial.print(';');
+      Serial.print(sta_thres);
+      Serial.print(';');
+      Serial.print(home_thres);
+      Serial.print(';');
+      Serial.println(turbo_thres);
+    }
+    if(!strcmp(button,"GETTRIG")) {
       //Serial.print("Getting memory value... "); Serial.println(int(val));
       float memval;
       EEPROM.get((int)val, memval);
@@ -185,65 +268,81 @@ void loop()
     }
     else if(!strcmp(button,"LP")) {
       //Serial.print("Writing "); Serial.print(val); Serial.print(" to "); Serial.println(button);
+      lp_thres=val;
       EEPROM.put(0, val);
     }
     else if(!strcmp(button,"MP")) {
       //Serial.print("Writing "); Serial.print(val); Serial.print(" to "); Serial.println(button);
+      mp_thres=val;
       EEPROM.put(4, val);
     }
     else if(!strcmp(button,"HP")) {
+      hp_thres=val;
       //Serial.print("Writing "); Serial.print(val); Serial.print(" to "); Serial.println(button);
       EEPROM.put(8, val);
     }
     else if(!strcmp(button,"SHP")) {
+      shp_thres=val;
       //Serial.print("Writing "); Serial.print(val); Serial.print(" to "); Serial.println(button);
       EEPROM.put(12, val);
     }
     else if(!strcmp(button,"LK")) {
+      lk_thres=val;
       //Serial.print("Writing "); Serial.print(val); Serial.print(" to "); Serial.println(button);
       EEPROM.put(16, val);
     }
     else if(!strcmp(button,"MK")) {
+      mk_thres=val;
       //Serial.print("Writing "); Serial.print(val); Serial.print(" to "); Serial.println(button);
       EEPROM.put(20, val);
     }
     else if(!strcmp(button,"HK")) {
+      hk_thres=val;
       //Serial.print("Writing "); Serial.print(val); Serial.print(" to "); Serial.println(button);
       EEPROM.put(24, val);
     }
     else if(!strcmp(button,"SHK")) {
+      shk_thres=val;
       //Serial.print("Writing "); Serial.print(val); Serial.print(" to "); Serial.println(button);
       EEPROM.put(28, val);
     }    
     else if(!strcmp(button,"LEFT")) {
+      left_thres=val;
       //Serial.print("Writing "); Serial.print(val); Serial.print(" to "); Serial.println(button);
       EEPROM.put(32, val);
     }
     else if(!strcmp(button,"RIGHT")) {
+      right_thres=val;
       //Serial.print("Writing "); Serial.print(val); Serial.print(" to "); Serial.println(button);
       EEPROM.put(36, val);
     }
     else if(!strcmp(button,"UP")) {
+      up_thres=val;
       //Serial.print("Writing "); Serial.print(val); Serial.print(" to "); Serial.println(button);
       EEPROM.put(40, val);
     }
     else if(!strcmp(button,"DOWN")) {
+      down_thres=val;
       //Serial.print("Writing "); Serial.print(val); Serial.print(" to "); Serial.println(button);
       EEPROM.put(44, val);
     } 
     else if(!strcmp(button,"START")) {
+      sta_thres=val;
       //Serial.print("Writing "); Serial.print(val); Serial.print(" to "); Serial.println(button);
       EEPROM.put(48, val);
     }
     else if(!strcmp(button,"SELECT")) {
+      sel_thres=val;
       //Serial.print("Writing "); Serial.print(val); Serial.print(" to "); Serial.println(button);
       EEPROM.put(52, val);
     }
     else if(!strcmp(button,"HOME")) {
+      home_thres=val;
       //Serial.print("Writing "); Serial.print(val); Serial.print(" to "); Serial.println(button);
       EEPROM.put(56, val);
     }
     else if(!strcmp(button,"TURBO")) {
+      turbo_thres=val;
       //Serial.print("Writing "); Serial.print(val); Serial.print(" to "); Serial.println(button);
       EEPROM.put(60, val);
     } 

@@ -12,6 +12,8 @@ import threading
 ports = serial.tools.list_ports.comports()
 serial_port = None
 
+maxvals = []
+
 root = Tk()
 root.title("Faraday Fightstick Configurator")
 frame_connect = Frame(root)
@@ -31,101 +33,124 @@ label_buttonsettings = Label(frame_buttonconfig, text="Button Sensitivity Config
 
 
 label_lp = Label(frame_buttonconfig, text="LP").grid(row=1, column=0)
-entry_lp = Entry(frame_buttonconfig)
-entry_lp.grid(row=1,column=1)
+slider_lp = Scale(frame_buttonconfig, from_=100, to=0)
+slider_lp.grid(row=1,column=1)
 label_mp = Label(frame_buttonconfig, text="MP").grid(row=1, column=2)
-entry_mp = Entry(frame_buttonconfig)
-entry_mp.grid(row=1,column=3)
+slider_mp = Scale(frame_buttonconfig, from_=100, to=0)
+slider_mp.grid(row=1,column=3)
 label_hp = Label(frame_buttonconfig, text="HP").grid(row=1, column=4)
-entry_hp = Entry(frame_buttonconfig)
-entry_hp.grid(row=1,column=5)
+slider_hp = Scale(frame_buttonconfig, from_=100, to=0)
+slider_hp.grid(row=1,column=5)
 label_shp = Label(frame_buttonconfig, text="SHP").grid(row=1, column=6)
-entry_shp = Entry(frame_buttonconfig)
-entry_shp.grid(row=1,column=7)
+slider_shp = Scale(frame_buttonconfig, from_=100, to=0)
+slider_shp.grid(row=1,column=7)
 
 label_lk = Label(frame_buttonconfig, text="LK").grid(row=2, column=0)
-entry_lk = Entry(frame_buttonconfig)
-entry_lk.grid(row=2,column=1)
+slider_lk = Scale(frame_buttonconfig, from_=100, to=0)
+slider_lk.grid(row=2,column=1)
 label_mk = Label(frame_buttonconfig, text='MK').grid(row=2, column=2)
-entry_mk = Entry(frame_buttonconfig)
-entry_mk.grid(row=2,column=3)
+slider_mk = Scale(frame_buttonconfig, from_=100, to=0)
+slider_mk.grid(row=2,column=3)
 label_hk = Label(frame_buttonconfig, text="HK").grid(row=2, column=4)
-entry_hk = Entry(frame_buttonconfig)
-entry_hk.grid(row=2,column=5)
+slider_hk = Scale(frame_buttonconfig, from_=100, to=0)
+slider_hk.grid(row=2,column=5)
 label_shk = Label(frame_buttonconfig, text="SHK").grid(row=2, column=6)
-entry_shk = Entry(frame_buttonconfig)
-entry_shk.grid(row=2,column=7)
+slider_shk = Scale(frame_buttonconfig, from_=100, to=0)
+slider_shk.grid(row=2,column=7)
 
 label_up = Label(frame_buttonconfig, text="UP").grid(row=3, column=0)
-entry_up = Entry(frame_buttonconfig)
-entry_up.grid(row=3,column=1)
+slider_up = Scale(frame_buttonconfig, from_=100, to=0)
+slider_up.grid(row=3,column=1)
 label_down = Label(frame_buttonconfig, text="DOWN").grid(row=3, column=2)
-entry_down = Entry(frame_buttonconfig)
-entry_down.grid(row=3,column=3)
+slider_down = Scale(frame_buttonconfig, from_=100, to=0)
+slider_down.grid(row=3,column=3)
 label_left = Label(frame_buttonconfig, text="LEFT").grid(row=3, column=4)
-entry_left = Entry(frame_buttonconfig)
-entry_left.grid(row=3,column=5)
+slider_left = Scale(frame_buttonconfig, from_=100, to=0)
+slider_left.grid(row=3,column=5)
 label_right = Label(frame_buttonconfig, text = "RIGHT").grid(row=3, column=6)
-entry_right = Entry(frame_buttonconfig)
-entry_right.grid(row=3,column=7)
+slider_right = Scale(frame_buttonconfig, from_=100, to=0)
+slider_right.grid(row=3,column=7)
 
 label_start = Label(frame_buttonconfig, text="START").grid(row=4, column=0)
-entry_start = Entry(frame_buttonconfig)
-entry_start.grid(row=4,column=1)
+slider_start = Scale(frame_buttonconfig, from_=100, to=0)
+slider_start.grid(row=4,column=1)
 label_select = Label(frame_buttonconfig, text = "SELECT").grid(row=4, column=2)
-entry_select = Entry(frame_buttonconfig)
-entry_select.grid(row=4,column=3)
+slider_select = Scale(frame_buttonconfig, from_=100, to=0)
+slider_select.grid(row=4,column=3)
 label_turbo = Label(frame_buttonconfig, text="TURBO").grid(row=4, column=4)
-entry_turbo = Entry(frame_buttonconfig)
-entry_turbo.grid(row=4,column=5)
+slider_turbo = Scale(frame_buttonconfig, from_=100, to=0)
+slider_turbo.grid(row=4,column=5)
 label_home = Label(frame_buttonconfig, text="HOME").grid(row=4, column=6)
-entry_home = Entry(frame_buttonconfig)
-entry_home.grid(row=4,column=7)
+slider_home = Scale(frame_buttonconfig, from_=100, to=0)
+slider_home.grid(row=4,column=7)
+
 
 
 def get_button_threshold(serial_port, addr):
-    writestr = 'GET;' + str(addr) + '\n'
+    writestr = 'GETTRIG;' + str(addr) + '\n'
     serial_port.write(writestr.encode())
     sleep(0.05)
     val = serial_port.readline()
     print(val)
     return float(val)
+def get_all_thresholds(serial_port):
+    writestr = 'GETALLTRIG;\n'
+    serial_port.write(writestr.encode())
+    sleep(0.05)
+    val = serial_port.readline()
+    val = str(val)[2::].split(';')
+    val[15] = val[15][:-6]
+    return val
+def get_maxvals(serial_port):
+    writestr = 'GETALLVAL;' + '\n'
+    serial_port.write(writestr.encode())
+    sleep(0.05)
+    val = serial_port.readline()
+    val = str(val)[2::].split(';')
+    val[15] = val[15][:-6]
+    return val
+
+
 def initialize_entries():
-    global serial_port, progressbar_reading, entry_lp, entry_mp, entry_hp, entry_shp, entry_lk, entry_mk, entry_hk, entry_shk, entry_up, entry_down, entry_left, entry_right, entry_start, entry_select, entry_home, entry_turbo
-    entry_lp.insert(0, str(get_button_threshold(serial_port, 0)))
+    global maxvals, serial_port, progressbar_reading, slider_lp, slider_mp, slider_hp, slider_shp, slider_lk, slider_mk, slider_hk, slider_shk, slider_up, slider_down, slider_left, slider_right, slider_start, slider_select, slider_home, slider_turbo
+    
+    maxvals = get_maxvals(serial_port)
+    vals = get_all_thresholds(serial_port)
+
+    slider_lp.set(int(float(vals[0])/float(maxvals[0])*100))
     progressbar_reading.step(float(1)/16*100)
-    entry_mp.insert(0, str(get_button_threshold(serial_port, 4)))
+    slider_mp.set(int(float(vals[1])/float(maxvals[1])*100))
     progressbar_reading.step(float(1)/16*100)
-    entry_hp.insert(0, str(get_button_threshold(serial_port, 8)))
+    slider_hp.set(int(float(vals[2])/float(maxvals[2])*100))
     progressbar_reading.step(float(1)/16*100)
-    entry_shp.insert(0, str(get_button_threshold(serial_port, 12)))
+    slider_shp.set(int(float(vals[3])/float(maxvals[3])*100))
     
     progressbar_reading.step(float(1)/16*100)
-    entry_lk.insert(0, str(get_button_threshold(serial_port, 16)))
+    slider_lk.set(int(float(vals[4])/float(maxvals[4])*100))
     progressbar_reading.step(float(1)/16*100)
-    entry_mk.insert(0, str(get_button_threshold(serial_port, 20)))
+    slider_mk.set(int(float(vals[5])/float(maxvals[5])*100))
     progressbar_reading.step(float(1)/16*100)
-    entry_hk.insert(0, str(get_button_threshold(serial_port, 24)))
+    slider_hk.set(int(float(vals[6])/float(maxvals[6])*100))
     progressbar_reading.step(float(1)/16*100)
-    entry_shk.insert(0, str(get_button_threshold(serial_port, 28)))
+    slider_shk.set(int(float(vals[7])/float(maxvals[7])*100))
 
     progressbar_reading.step(float(1)/16*100)
-    entry_left.insert(0, str(get_button_threshold(serial_port, 32)))
+    slider_left.set(int(float(vals[8])/float(maxvals[8])*100))
     progressbar_reading.step(float(1)/16*100)
-    entry_right.insert(0, str(get_button_threshold(serial_port, 36)))
+    slider_right.set(int(float(vals[10])/float(maxvals[10])*100))
     progressbar_reading.step(float(1)/16*100)
-    entry_up.insert(0, str(get_button_threshold(serial_port, 40)))
+    slider_up.set(int(float(vals[11])/float(maxvals[11])*100))
     progressbar_reading.step(float(1)/16*100)
-    entry_down.insert(0, str(get_button_threshold(serial_port, 44)))       
+    slider_down.set(int(float(vals[9])/float(maxvals[9])*100))
 
     progressbar_reading.step(float(1)/16*100)
-    entry_start.insert(0, str(get_button_threshold(serial_port, 48)))
+    slider_start.set(int(float(vals[13])/float(maxvals[13])*100))
     progressbar_reading.step(float(1)/16*100)
-    entry_select.insert(0, str(get_button_threshold(serial_port, 52)))
+    slider_select.set(int(float(vals[12])/float(maxvals[12])*100))
     progressbar_reading.step(float(1)/16*100)
-    entry_home.insert(0, str(get_button_threshold(serial_port, 56)))
+    slider_home.set(int(float(vals[14])/float(maxvals[14])*100))
     progressbar_reading.step(float(1)/16*100)
-    entry_turbo.insert(0, str(get_button_threshold(serial_port, 60)))       
+    slider_turbo.set(int(float(vals[15])/float(maxvals[15])*100))
     progressbar_reading.step(float(1)/16*100)
 
     frame_buttonconfig.grid(row=0, column=0)
@@ -136,96 +161,97 @@ def initialize_entries():
 def submit_new_thresholds():
     threading.Thread(target=submit_new_thresholds_threaded).start()
 def submit_new_thresholds_threaded():
-    global serial_port, progressbar_writing
-    lp_val = entry_lp.get()
+    global serial_port, progressbar_writing, maxvals
+    lp_val = slider_lp.get() / 100.0 * float(maxvals[0])
     st = 'LP;' + str(lp_val) + '\r\n'
     serial_port.write(st.encode())
     sleep(2)
     progressbar_writing.step(float(1)/16*100)
-    mp_val = entry_mp.get()
+    mp_val = slider_mp.get() / 100.0 * float(maxvals[1])
     st = 'MP;' + str(mp_val) + '\r\n'
     serial_port.write(st.encode())
     sleep(2)
     progressbar_writing.step(float(1)/16*100)
-    hp_val = entry_hp.get()
+    hp_val = slider_hp.get() / 100.0 * float(maxvals[2])
     st = 'HP;' + str(hp_val) + '\r\n'
     serial_port.write(st.encode())
     sleep(2)
     progressbar_writing.step(float(1)/16*100)
-    shp_val = entry_shp.get()
+    shp_val = slider_shp.get() / 100.0 * float(maxvals[3])
     st = 'SHP;' + str(shp_val) + '\r\n'
     serial_port.write(st.encode())
     sleep(2)
     progressbar_writing.step(float(1)/16*100)
-    lk_val = entry_lk.get()
+    lk_val = slider_lk.get() / 100.0 * float(maxvals[4])
     st = 'LK;' + str(lk_val) + '\r\n'
     serial_port.write(st.encode())
     sleep(2)
     progressbar_writing.step(float(1)/16*100)
-    mk_val = entry_mk.get()
+    mk_val = slider_mk.get() / 100.0 * float(maxvals[5])
     st = 'MK;' + str(mk_val) + '\r\n'
     serial_port.write(st.encode())
     sleep(2)
     progressbar_writing.step(float(1)/16*100)
-    hk_val = entry_hk.get()
+    hk_val = slider_hk.get() / 100.0 * float(maxvals[6])
     st = 'HK;' + str(hk_val) + '\r\n'
     serial_port.write(st.encode())
     sleep(2)
     progressbar_writing.step(float(1)/16*100)
-    shk_val = entry_shk.get()
+    shk_val = slider_shk.get() / 100.0 * float(maxvals[7])
     st = 'SHK;' + str(shk_val) + '\r\n'
     serial_port.write(st.encode())
     sleep(2)
     progressbar_writing.step(float(1)/16*100)
 
-    left_val = entry_left.get()
+    left_val = slider_left.get() / 100.0 * float(maxvals[8])
     st = 'LEFT;' + str(left_val) + '\r\n'
     serial_port.write(st.encode())
     sleep(2)
     progressbar_writing.step(float(1)/16*100)
-    right_val = entry_right.get()
+    right_val = slider_right.get() / 100.0 * float(maxvals[10])
     st = 'RIGHT;' + str(right_val) + '\r\n'
     serial_port.write(st.encode())
     sleep(2)
     progressbar_writing.step(float(1)/16*100)
-    up_val = entry_up.get()
+    up_val = slider_up.get() / 100.0 * float(maxvals[11])
     st = 'UP;' + str(up_val) + '\r\n'
     serial_port.write(st.encode())
     sleep(2)
     progressbar_writing.step(float(1)/16*100)
-    down_val = entry_down.get()
+    down_val = slider_down.get() / 100.0 * float(maxvals[9])
     st = 'DOWN;' + str(down_val) + '\r\n'
     serial_port.write(st.encode())
     sleep(2)
     progressbar_writing.step(float(1)/16*100)
 
-    start_val = entry_start.get()
+    start_val = slider_start.get() / 100.0 * float(maxvals[13])
     st = 'START;' + str(start_val) + '\r\n'
     serial_port.write(st.encode())
     sleep(2)
     progressbar_writing.step(float(1)/16*100)
-    select_val = entry_select.get()
+    select_val = slider_select.get() / 100.0 * float(maxvals[12])
     st = 'SELECT;' + str(select_val) + '\r\n'
     serial_port.write(st.encode())
     sleep(2)
     progressbar_writing.step(float(1)/16*100)
-    home_val = entry_home.get()
+    home_val = slider_home.get() / 100.0 * float(maxvals[14])
     st = 'HOME;' + str(home_val) + '\r\n'
     serial_port.write(st.encode())
     sleep(2)
     progressbar_writing.step(float(1)/16*100)
-    turbo_val = entry_turbo.get()
+    turbo_val = slider_turbo.get() / 100.0 * float(maxvals[15])
     st = 'TURBO;' + str(turbo_val) + '\r\n'
     serial_port.write(st.encode())
     sleep(2)
     progressbar_writing.step(float(1)/16*100)
 
-def connect_to_serial():
+def connect_to_serial(comport=None):
     global serial_port
     global frame_buttonconfig
 
-    comport = listbox_comports.get(ACTIVE)
-    comport = comport.split(':')[0]
+    if comport == None:
+        comport = listbox_comports.get(ACTIVE)
+        comport = comport.split(':')[0]
 
     serial_port = serial.Serial(comport, 57600)
     if serial_port.is_open:
@@ -240,6 +266,8 @@ i = 0
 for port, desc, hwid in sorted(ports):
     listbox_comports.insert(i,"{}: {}".format(port, desc))
     i += 1
+    if "Arduino Micro" in desc:
+        connect_to_serial(comport=port)
 
 
 label_connect.pack()
